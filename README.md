@@ -16,7 +16,7 @@ As a star ship, your goal is to destroy evil planets, but beware, cause there ar
 
 # Illustration Idea
 
-![[StarShooterIllustration.png]]
+![StarShooterIllustration.png]
 
 # Components
 
