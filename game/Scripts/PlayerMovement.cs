@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Threading.Tasks;
 
 public partial class PlayerMovement : CharacterBody2D
 {
@@ -26,17 +27,25 @@ public partial class PlayerMovement : CharacterBody2D
 		Move(delta);
 		Rotate(delta);	
 	}
+	
+	private async Task kill()
+    	{
+    		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
+    		QueueFree();
+    	}
 
 	private void Move(double delta)
 	{
 		if (Input.IsActionPressed("Thrust"))
 		{
-			GD.Print("Thrusting");
-
 			Velocity = Velocity.MoveToward(facingVector*MAX_SPEED, (float) delta * acceleration);
 		}
 	
-		MoveAndCollide(Velocity * (float) delta);
+		var collisionInfo = MoveAndCollide(Velocity * (float) delta);
+		if (collisionInfo != null)
+		{
+			kill();
+		}
 	}
 
 	private void Rotate(double delta)

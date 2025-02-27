@@ -19,6 +19,10 @@ config/icon="res://Assets/icon.svg"
 
 project/assembly_name="Game"
 
+[global_group]
+
+Player="The player node"
+
 [input]
 
 Thrust={

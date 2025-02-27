@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.cs" id="1_dhmpq"]
 [ext_resource type="Texture2D" uid="uid://dcos0nro55fd8" path="res://Assets/yellowStarship.png" id="2_0j01g"]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_dhmpq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
