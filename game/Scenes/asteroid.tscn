@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bekp1j004r2m4"]
 
-[ext_resource type="Script" path="res://Asteroid.cs" id="1_rql0w"]
+[ext_resource type="Script" path="res://Scripts/Asteroid.cs" id="1_rql0w"]
 [ext_resource type="Texture2D" uid="uid://q82mq6o6pivr" path="res://Assets/Astreoid.png" id="2_ihco5"]
 
 [node name="Asteroid" type="CharacterBody2D"]
@@ -11,3 +11,9 @@ texture = ExtResource("2_ihco5")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-5, -25, -30, 8, -27, 19, 3, 29, 9, 22, 10, 7, 17, -4, 22, -14)
+
+[node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+polygon = PackedVector2Array(-5, -26, -31, 8, -28, 20, 4, 30, 10, 23, 11, 7, 18, -3, 23, -14)

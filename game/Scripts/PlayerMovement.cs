@@ -1,8 +1,9 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
-public partial class PlayerMovement : CharacterBody2D
+public partial class PlayerMovement : CharacterBody2D, IShootable
 {
 	static float MAX_SPEED = 3000f;
 
@@ -18,6 +19,11 @@ public partial class PlayerMovement : CharacterBody2D
 	public override void _Ready()
 	{
 		focusPoint = GetNode<Node2D>("FocusPoint");
+	}
+
+	public void getShot()
+	{
+		QueueFree();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

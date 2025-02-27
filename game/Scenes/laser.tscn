@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://f1mk67r6hfnj"]
+
+[ext_resource type="Script" path="res://Scripts/Laser.cs" id="1_3ti4r"]
+[ext_resource type="Texture2D" uid="uid://blh4aywku7prd" path="res://Assets/Laser.png" id="1_qr8jo"]
+[ext_resource type="Script" path="res://Scripts/LaserHitBox.cs" id="2_cd3ek"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgt2l"]
+size = Vector2(8, 2)
+
+[node name="Laser" type="Node2D"]
+rotation = -0.00129776
+script = ExtResource("1_3ti4r")
+
+[node name="HitBox" type="Area2D" parent="."]
+script = ExtResource("2_cd3ek")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_vgt2l")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(8, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qr8jo")
+
+[connection signal="body_entered" from="HitBox" to="HitBox" method="OnBodyEntered"]

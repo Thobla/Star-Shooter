@@ -1,14 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://q4y2p84j6nmx"]
+[gd_scene load_steps=5 format=3 uid="uid://q4y2p84j6nmx"]
 
 [ext_resource type="PackedScene" uid="uid://bd1saf228t3tt" path="res://Scenes/Background.tscn" id="1_6vscy"]
 [ext_resource type="PackedScene" uid="uid://pet5reaks077" path="res://Scenes/Player.tscn" id="2_m7tns"]
 [ext_resource type="PackedScene" uid="uid://bekp1j004r2m4" path="res://Scenes/asteroid.tscn" id="3_ckmgk"]
+[ext_resource type="PackedScene" uid="uid://f1mk67r6hfnj" path="res://Scenes/laser.tscn" id="4_x2gx2"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Background" parent="." instance=ExtResource("1_6vscy")]
 
 [node name="Player" parent="Background" instance=ExtResource("2_m7tns")]
+position = Vector2(81.6552, -50.5988)
+rotation = -0.162856
 
 [node name="Camera2D" type="Camera2D" parent="Background/Player"]
 position = Vector2(-2.40533e-06, 0)
@@ -19,9 +22,15 @@ position = Vector2(-764, -624)
 scale = Vector2(12.6875, 11.6406)
 
 [node name="Asteroid" parent="." instance=ExtResource("3_ckmgk")]
-position = Vector2(875, -363)
+position = Vector2(306, -335)
 scale = Vector2(12.6875, 11.6406)
 
 [node name="Asteroid3" parent="." instance=ExtResource("3_ckmgk")]
 position = Vector2(-509, 447)
 scale = Vector2(12.6875, 11.6406)
+
+[node name="Laser" parent="." instance=ExtResource("4_x2gx2")]
+position = Vector2(-207, -179)
+rotation = -0.485646
+scale = Vector2(12.6875, 11.6406)
+skew = -0.000223875

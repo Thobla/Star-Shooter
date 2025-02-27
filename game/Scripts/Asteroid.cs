@@ -2,7 +2,7 @@ using Godot;
 using System;
 using System.Threading.Tasks;
 
-public partial class Asteroid : CharacterBody2D
+public partial class Asteroid : CharacterBody2D, IShootable
 {
 	private const float MAX_SPEED = 350f;
 	private const float MIN_SPEED = 50f;
@@ -12,6 +12,12 @@ public partial class Asteroid : CharacterBody2D
 
 	private CharacterBody2D player;
 
+
+	public void getShot()
+	{
+		GD.Print("Got shot");
+		kill();
+	}
 	private async Task kill()
 	{
 		await ToSignal(GetTree(), SceneTree.SignalName.ProcessFrame);
