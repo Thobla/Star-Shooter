@@ -5,7 +5,7 @@ public partial class PlayerMovement : CharacterBody2D
 {
 	static float MAX_SPEED = 3000f;
 
-	private float acceleration = 10000f;
+	private float acceleration = 1000f;
 	
 	private float breakMultiplyer = 2f;
 

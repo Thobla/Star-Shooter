@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb5f1gtsvxm7c"
-path="res://.godot/imported/StarShipPink.png-fad45e00b681bd9000412fed5df073a3.ctex"
+uid="uid://q82mq6o6pivr"
+path="res://.godot/imported/Astreoid.png-7104416d9566cea1b3385046aa2e8ee8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/StarShipPink.png"
-dest_files=["res://.godot/imported/StarShipPink.png-fad45e00b681bd9000412fed5df073a3.ctex"]
+source_file="res://Assets/Astreoid.png"
+dest_files=["res://.godot/imported/Astreoid.png-7104416d9566cea1b3385046aa2e8ee8.ctex"]
 
 [params]
 
