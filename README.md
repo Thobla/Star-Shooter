@@ -5,11 +5,11 @@ As a star ship, your goal is to destroy evil planets, but beware, cause there ar
 
 # MVP
 
-- [ ] Sprite and hitbox for player
+- [X] Sprite and hitbox for player
 - [X] Player with basic movement (accelerate by thrusting forward)
-- [ ] Asteroids colliding with player
+- [X] Asteroids colliding with player
 - [ ] Player gun to destroy asteroids
-- [ ] Player killable
+- [X] Player killable
 - [ ] Enemy star ships following player
 - [ ] Enemy star ships firing at player
 - [ ] Sprites to make it feel good
