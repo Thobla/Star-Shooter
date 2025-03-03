@@ -13,10 +13,9 @@ public partial class Asteroid : CharacterBody2D, IShootable
 	private CharacterBody2D player;
 
 
-	public void getShot()
+	public async void getShot()
 	{
-		GD.Print("Got shot");
-		kill();
+		await kill();
 	}
 	private async Task kill()
 	{

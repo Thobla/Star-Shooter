@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://haf86e5p7rf7"]
+[gd_scene load_steps=2 format=3 uid="uid://haf86e5p7rf7"]
+
+[ext_resource type="Script" path="res://Scripts/Gun.cs" id="1_cjayg"]
 
 [node name="Gun" type="Node2D"]
+script = ExtResource("1_cjayg")

@@ -12,6 +12,8 @@ rotation = -0.00129776
 script = ExtResource("1_3ti4r")
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("2_cd3ek")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]

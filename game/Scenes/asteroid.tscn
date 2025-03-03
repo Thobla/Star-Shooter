@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://q82mq6o6pivr" path="res://Assets/Astreoid.png" id="2_ihco5"]
 
 [node name="Asteroid" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_rql0w")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

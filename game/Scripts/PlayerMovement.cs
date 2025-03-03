@@ -40,7 +40,7 @@ public partial class PlayerMovement : CharacterBody2D, IShootable
     		QueueFree();
     	}
 
-	private void Move(double delta)
+	private async void Move(double delta)
 	{
 		if (Input.IsActionPressed("Thrust"))
 		{
@@ -50,7 +50,7 @@ public partial class PlayerMovement : CharacterBody2D, IShootable
 		var collisionInfo = MoveAndCollide(Velocity * (float) delta);
 		if (collisionInfo != null)
 		{
-			kill();
+			await kill();
 		}
 	}
 

@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class Laser : Node2D
+public partial class Laser : Node2D, IBullet
 {
 	private float laser_speed = 1000f;
 	private Vector2 rotationVector;
@@ -16,5 +16,11 @@ public partial class Laser : Node2D
 	public override void _Process(double delta)
 	{
 		Position +=  rotationVector * laser_speed * (float) delta;
+	}
+
+
+	public void Initialize(float rotation, Vector2 position){
+		rotationVector = Vector2.Right.Rotated(rotation);
+		GlobalPosition = position;
 	}
 }
