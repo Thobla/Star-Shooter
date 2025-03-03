@@ -5,12 +5,12 @@ public partial class Gun : Node2D
 {
 	private PackedScene bullet = GD.Load<PackedScene>("res://scenes/laser.tscn");
 	private Timer cooldownTimer;
-	[Export] private double cooldown = 1d;
+	[Export] private double cooldown = 1;
 	private IMain mainScene;
 	
 	
 	[Signal]
-	public delegate void ShootEventHandler(Node2D bullet, float rotation, Vector2 position);
+	public delegate void ShootEventHandler(Node2D bullet, float rotation, Vector2 position, Vector2 velocity);
 
 
 	
@@ -31,12 +31,12 @@ public partial class Gun : Node2D
 
 	private void shoot()
 	{
-		//if (Input.IsActionPressed("Shoot") && cooldownTimer.IsStopped())
-		if (Input.IsActionPressed("Shoot"))
+		GD.Print(cooldownTimer.GetTimeLeft(), cooldownTimer.IsStopped());
+		if (Input.IsActionPressed("Shoot") && cooldownTimer.IsStopped())
 		{
-			//cooldownTimer.Start();
+			cooldownTimer.Start();
 			var newBullet = bullet.Instantiate();
-			EmitSignal(SignalName.Shoot, newBullet, GlobalRotation, GlobalPosition);
+			EmitSignal(SignalName.Shoot, newBullet, GlobalRotation, GlobalPosition, ((CharacterBody2D) GetParent()).Velocity);
 		}
 	}
 
@@ -44,7 +44,14 @@ public partial class Gun : Node2D
 	{
 		cooldownTimer = new Timer();
 		cooldownTimer.WaitTime = cooldown;
+		cooldownTimer.Timeout += OnCooldownReady;
 		AddChild(cooldownTimer);
+	}
+
+	public void OnCooldownReady()
+	{
+		GD.Print("Hello");	
+		cooldownTimer.Stop();
 	}
 
 }

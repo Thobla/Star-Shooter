@@ -12,10 +12,10 @@ public partial class Main : Node2D, IMain
 	public override void _Process(double delta)
 	{
 	}
-	public void OnShoot(Node2D bullet, float rotation, Vector2 position)
+	public void OnShoot(Node2D bullet, float rotation, Vector2 position, Vector2 velocity)
 	{
 		AddChild(bullet);
-		((IBullet)bullet).Initialize(rotation, position);
+		((IBullet)bullet).Initialize(rotation, position, velocity);
 	}
 
 }
