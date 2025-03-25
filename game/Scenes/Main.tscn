@@ -1,38 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://q4y2p84j6nmx"]
+[gd_scene load_steps=8 format=3 uid="uid://q4y2p84j6nmx"]
 
 [ext_resource type="PackedScene" uid="uid://bd1saf228t3tt" path="res://Scenes/Background.tscn" id="1_6vscy"]
 [ext_resource type="Script" path="res://Scripts/Main.cs" id="1_s3tjt"]
 [ext_resource type="PackedScene" uid="uid://pet5reaks077" path="res://Scenes/Player.tscn" id="2_m7tns"]
 [ext_resource type="PackedScene" uid="uid://bekp1j004r2m4" path="res://Scenes/asteroid.tscn" id="3_ckmgk"]
-[ext_resource type="PackedScene" uid="uid://f1mk67r6hfnj" path="res://Scenes/laser.tscn" id="4_x2gx2"]
+[ext_resource type="PackedScene" uid="uid://cv16k2mks3mbe" path="res://Scenes/planet.tscn" id="3_hk1kk"]
+[ext_resource type="PackedScene" uid="uid://ddi80i057ysqf" path="res://Scenes/enemy.tscn" id="4_b5jcb"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4wf48"]
+vertices = PackedVector2Array(799.891, 722, -809, 722, -809, -721, 784.109, -721)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(794, -731, -819, -731, -819, 732, 810, 732)])
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_s3tjt")
 
 [node name="Background" parent="." instance=ExtResource("1_6vscy")]
 
-[node name="Player" parent="Background" instance=ExtResource("2_m7tns")]
-position = Vector2(81.6552, -50.5988)
-rotation = -0.162856
-
-[node name="Camera2D" type="Camera2D" parent="Background/Player"]
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Background"]
 position = Vector2(-2.40533e-06, 0)
 scale = Vector2(0.0788177, 0.0859062)
+navigation_polygon = SubResource("NavigationPolygon_4wf48")
+
+[node name="Planet" parent="Background/NavigationRegion2D" instance=ExtResource("3_hk1kk")]
+position = Vector2(166, -19)
+
+[node name="Planet2" parent="Background/NavigationRegion2D" instance=ExtResource("3_hk1kk")]
+position = Vector2(70, -57)
+
+[node name="Enemy" parent="Background/NavigationRegion2D" instance=ExtResource("4_b5jcb")]
+position = Vector2(47, -21)
 
 [node name="Asteroid2" parent="." instance=ExtResource("3_ckmgk")]
-position = Vector2(-764, -624)
-scale = Vector2(12.6875, 11.6406)
+position = Vector2(89, 45)
 
 [node name="Asteroid" parent="." instance=ExtResource("3_ckmgk")]
 position = Vector2(306, -335)
-scale = Vector2(12.6875, 11.6406)
 
 [node name="Asteroid3" parent="." instance=ExtResource("3_ckmgk")]
-position = Vector2(-509, 447)
-scale = Vector2(12.6875, 11.6406)
+position = Vector2(-33, 107)
 
-[node name="Laser" parent="." instance=ExtResource("4_x2gx2")]
-position = Vector2(-207, -179)
-rotation = -0.485646
-scale = Vector2(12.6875, 11.6406)
-skew = -0.000223875
+[node name="Player" parent="." instance=ExtResource("2_m7tns")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+rotation = -0.149626
+scale = Vector2(0.997918, 1.00247)
+skew = -0.0275836
+
+[node name="Asteroid4" parent="." instance=ExtResource("3_ckmgk")]
+position = Vector2(-74, -45)

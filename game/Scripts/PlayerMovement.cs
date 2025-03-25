@@ -50,7 +50,8 @@ public partial class PlayerMovement : CharacterBody2D, IShootable
 		var collisionInfo = MoveAndCollide(Velocity * (float) delta);
 		if (collisionInfo != null)
 		{
-			await kill();
+			//await kill();
+			Velocity = Velocity.Bounce(collisionInfo.GetNormal());
 		}
 	}
 

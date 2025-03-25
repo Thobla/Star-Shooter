@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv16k2mks3mbe"]
+
+[ext_resource type="Texture2D" uid="uid://cav8g5vwqaqt3" path="res://Assets/icon.svg" id="1_ty1pu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h15nn"]
+radius = 15.0
+
+[node name="Planet" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_ty1pu")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_h15nn")

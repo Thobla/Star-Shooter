@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddi80i057ysqf"]
+
+[ext_resource type="Script" path="res://Scenes/Enemy.cs" id="1_kxol4"]
+[ext_resource type="Texture2D" uid="uid://dcos0nro55fd8" path="res://Assets/yellowStarship.png" id="1_mutkn"]
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_kxol4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mutkn")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(16, -1, -16, -13, -16, 13, 16, 1)
+
+[node name="NavigationAgent" type="NavigationAgent2D" parent="."]
